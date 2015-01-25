@@ -1,0 +1,40 @@
+<config>
+    <modules>
+        <Zafar_KeyFeatures>
+            <version>1.0</version>
+            <depends>
+                <Mage_Catalog />
+            </depends>
+        </Zafar_KeyFeatures>
+    </modules>
+    <global>
+        <models>
+            <keyfeatures>
+                <class>Zafar_KeyFeatures_Model</class>
+            </keyfeatures>
+        </models>
+        <helpers>
+            <keyfeatures>
+                <class>Zafar_KeyFeatures_Helper</class>
+            </keyfeatures>
+        </helpers>
+        <blocks>
+            <keyfeatures>
+                <class>Zafar_KeyFeatures_Block</class>
+            </keyfeatures>
+        </blocks>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_catalog_product_attribute_edit_prepare_form>
+                <observers>
+                    <catalog>
+                        <type>singleton</type>
+                        <class>Zafar_KeyFeatures_Model_Observer</class>
+                        <method>addKeyFeturesProperties</method>
+                    </catalog>
+                </observers>
+            </adminhtml_catalog_product_attribute_edit_prepare_form>
+        </events>
+    </adminhtml>
+</config>
