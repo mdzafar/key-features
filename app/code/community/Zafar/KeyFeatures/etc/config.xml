@@ -1,7 +1,7 @@
 <config>
     <modules>
         <Zafar_KeyFeatures>
-            <version>1.0</version>
+            <version>1.0.0</version>
             <depends>
                 <Mage_Catalog />
             </depends>
@@ -23,7 +23,36 @@
                 <class>Zafar_KeyFeatures_Block</class>
             </keyfeatures>
         </blocks>
+        <resources>
+            <keyfeatures_setup>
+                <setup>
+                    <module>Zafar_KeyFeatures</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </keyfeatures_setup>
+            <keyfeatures_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </keyfeatures_write>
+            <keyfeatures_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </keyfeatures_read>
+        </resources>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <keyfeatures>
+                    <file>keyfeatures.xml</file>
+                </keyfeatures>
+            </updates>
+        </layout>
+    </frontend>
     <adminhtml>
         <events>
             <adminhtml_catalog_product_attribute_edit_prepare_form>
